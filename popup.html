@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>RevidAPI Social</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">R</div>
+      <div class="titles">
+        <div class="name">RevidAPI Social</div>
+        <div class="sub" id="server-line">đang kiểm tra dashboard…</div>
+      </div>
+      <span class="dot" id="dot"></span>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <div>
+          <div class="label">Trang hiện tại</div>
+          <div class="value" id="platform-name">—</div>
+        </div>
+        <span class="pill" id="login-pill">—</span>
+      </div>
+      <div class="missing hidden" id="missing"></div>
+      <label class="field">
+        <span>Tên gợi nhớ (tuỳ chọn)</span>
+        <input id="label" placeholder="vd: FB bán hàng 1" />
+      </label>
+      <button class="primary wide" id="btn-sync">Đồng bộ tài khoản này</button>
+      <button class="ghost wide sm" id="btn-sync-all">Đồng bộ tất cả nền tảng</button>
+    </section>
+
+    <section class="card">
+      <button class="ghost wide sm" id="btn-open-dashboard">Mở dashboard</button>
+      <button class="ghost wide sm" id="btn-options">Cài đặt extension</button>
+    </section>
+
+    <div class="toast" id="toast"></div>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

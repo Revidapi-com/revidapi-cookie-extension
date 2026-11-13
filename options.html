@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>RevidAPI Social – Cài đặt</title>
+    <style>
+      :root { --bg:#0b0d12; --card:#161a24; --border:#262c3b; --text:#e6e8ef; --muted:#8b93a7; --accent:#6366f1; --ok:#22c55e; --err:#ef4444; --mono:ui-monospace,Menlo,monospace; }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+      .wrap { max-width: 680px; margin: 0 auto; padding: 34px 20px 60px; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      p.lead { color: var(--muted); margin: 0 0 22px; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+      label.field { display:block; margin-bottom: 14px; }
+      label.field > span { display:block; font-size:12px; color:var(--muted); margin-bottom:5px; }
+      input { width:100%; font:inherit; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:8px 10px; }
+      input:focus { outline:2px solid rgba(99,102,241,.45); border-color:var(--accent); }
+      button { font:inherit; cursor:pointer; color:#fff; background:var(--accent); border:1px solid var(--accent); border-radius:8px; padding:8px 14px; }
+      button.ghost { background:transparent; color:var(--muted); border-color:var(--border); }
+      .row { display:flex; gap:8px; align-items:center; }
+      .hint { font-size:12px; color:var(--muted); margin-top:6px; }
+      .status { font-family: var(--mono); font-size: 12.5px; margin-top: 10px; }
+      .status.ok { color: #86efac; }
+      .status.err { color: #fca5a5; }
+      table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+      td:first-child { color: var(--muted); width: 130px; }
+      code { font-family: var(--mono); background: #12151d; padding: 1px 5px; border-radius: 5px; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>RevidAPI Social — Cài đặt</h1>
+      <p class="lead">Extension chỉ nói chuyện với dashboard chạy trên máy bạn.</p>
+
+      <div class="card">
+        <label class="field">
+          <span>Địa chỉ dashboard</span>
+          <input id="server-url" placeholder="http://127.0.0.1:8788" />
+          <div class="hint">Mặc định cổng 8788. Nếu đổi, sửa cả trong <code>server.js</code> hoặc biến môi trường <code>PORT</code>.</div>
+        </label>
+        <div class="row">
+          <button id="btn-save">Lưu</button>
+          <button class="ghost" id="btn-test">Kiểm tra kết nối</button>
+          <button class="ghost" id="btn-open">Mở dashboard</button>
+        </div>
+        <div class="status" id="status"></div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px; font-size:14px">Cookie bắt buộc theo nền tảng</h3>
+        <table>
+          <tr><td>Facebook</td><td><code>c_user</code>, <code>xs</code> — domain <code>.facebook.com</code></td></tr>
+          <tr><td>TikTok</td><td><code>sessionid</code> — domain <code>.tiktok.com</code></td></tr>
+          <tr><td>Zalo</td><td><code>zpsid</code> — domain <code>.zalo.me</code></td></tr>
+        </table>
+        <div class="hint">Extension đọc cookie bằng quyền <code>cookies</code> của Chrome, không đọc mật khẩu.</div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px; font-size:14px">Quyền riêng tư</h3>
+        <p class="hint" style="margin:0">Dữ liệu đồng bộ chỉ gửi tới <code>127.0.0.1</code>. Không có telemetry, không có server ngoài. Địa chỉ ngoài máy bạn sẽ bị từ chối.</p>
+      </div>
+    </div>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>
